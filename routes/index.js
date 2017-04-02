@@ -13,8 +13,11 @@ router.get('/', function(req, res, next) {
 router.get('/request', function(req, res, next) {
 	console.log(req.query.name);
 	player = NBA.findPlayer(req.query.name);
-	console.log(player);
-	res.json(player);
+	NBA.stats.playerInfo({ PlayerID: player.playerId}).then(function(result) {
+		console.log(result);
+		res.json(result);
+	});
+	//res.json(player);
 });
 
 module.exports = router;

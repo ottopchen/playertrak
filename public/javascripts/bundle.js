@@ -9464,11 +9464,37 @@ var e = React.createElement;
 
 function getInfo() {
 	name = document.getElementById('name').value;
-	ReactDOM.render(React.createElement(
-		'p',
-		null,
-		name
-	), document.getElementById('playerName'));
+	fetch('request?name=' + name).then(function (response) {
+		return response.json().then(function (result) {
+			console.log(result);
+			var cpi = result.commonPlayerInfo[0];
+			var stats = result.playerHeadlineStats[0];
+			console.log(result.commonPlayerInfo[0]);
+			ReactDOM.render(React.createElement(
+				'p',
+				null,
+				cpi.displayFirstLast,
+				' ',
+				React.createElement('br', null),
+				'Number: ',
+				cpi.jersey,
+				', Height: ',
+				cpi.height,
+				', Weight: ',
+				cpi.weight,
+				' ',
+				React.createElement('br', null),
+				'Pts: ',
+				stats.pts,
+				', Asts: ',
+				stats.ast,
+				', Reb: ',
+				stats.reb,
+				' ',
+				React.createElement('br', null)
+			), document.getElementById('playerName'));
+		});
+	});
 }
 
 window.getInfo = getInfo;
