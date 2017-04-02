@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  
+  script(src='/javascripts/bundle.js', type='text/javascript')
+  h1 PlayerTrak 
+    label(for='name') Name:
+    input#name.form-control(type='text', placeholder='first and last' name='name')
+    button.btn.btn-primary(onclick='getInfo()') Get info
+  p(id='playerName')
