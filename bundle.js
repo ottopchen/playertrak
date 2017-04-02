@@ -9457,17 +9457,17 @@ module.exports = __webpack_require__(19);
 "use strict";
 
 
-var React = __webpack_require__(80);
-var ReactDOM = __webpack_require__(79);
+React = __webpack_require__(80);
+ReactDOM = __webpack_require__(79);
 
-var e = React.createElement;
+e = React.createElement;
 
 function getInfo() {
 	name = document.getElementById('name').value;
 	ReactDOM.render(React.createElement(
 		'p',
 		null,
-		name
+		'Hi'
 	), document.getElementById('playerName'));
 }
 

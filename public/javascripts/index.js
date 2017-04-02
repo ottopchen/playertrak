@@ -1,11 +1,11 @@
-React = require('react');
-ReactDOM = require('react-dom');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-e = React.createElement;
+var e = React.createElement;
 
 function getInfo() {
 	name = document.getElementById('name').value;
-	ReactDOM.render(e('h1', null, name), document.getElementById('playerName'));
+	ReactDOM.render(<p>{name}</p>, document.getElementById('playerName'));
 }
 
 window.getInfo = getInfo;
